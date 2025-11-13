@@ -15,10 +15,7 @@ class Tele: DSLOpMode(false, {
 
     schedule(forever { delta, _ ->
         val movement = Vector2d(gamepad1.left_stick_x.toDouble(), gamepad1.left_stick_y.toDouble())
-
-        for (module in drive.modules) {
-            module.turnServo.power = 1.0
-        }
+        drive.drive(movement, gamepad1.right_stick_x.toDouble())
 
         robot.update()
         robot.telemetry.addData("fps", 1 / delta)

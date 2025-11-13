@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.PIDCoefficients
 import dev.swagv.control.PIDController
 import dev.swagv.hardware.AbsoluteAnalogEncoder
 import dev.swagv.util.Periodic
+import dev.swagv.util.normalized
 
 class SwerveModule(
     val driveMotor: DcMotorEx,
@@ -38,12 +39,12 @@ class SwerveModule(
     }
 
     override fun update() {
-//        val currentAngle = (turnEncoder.currentPosition / turnGearRatio).normalized
-//
-//        val target = (targetAngle * turnGearRatio).normalized
-//
-//        val turnOutput = turnPID.calculate(currentAngle, target)
-//        turnServo.power = turnOutput.coerceIn(-1.0, 1.0)
-//        driveMotor.power = drivePower
+        val currentAngle = (turnEncoder.currentPosition / turnGearRatio).normalized
+
+        val target = (targetAngle * turnGearRatio).normalized
+
+        val turnOutput = turnPID.calculate(currentAngle, target)
+        turnServo.power = turnOutput.coerceIn(-1.0, 1.0)
+        driveMotor.power = drivePower
     }
 }
