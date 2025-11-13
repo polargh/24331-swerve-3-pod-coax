@@ -4,7 +4,9 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp
 import dev.swagv.Robot
 import dev.nullftc.commandkit.ktx.DSLOpMode
 import dev.nullftc.commandkit.ktx.ext.forever
+import dev.swagv.util.r
 import org.joml.Vector2d
+import org.joml.Vector3d
 
 @TeleOp
 class Tele: DSLOpMode(false, {
@@ -15,6 +17,9 @@ class Tele: DSLOpMode(false, {
 
     schedule(forever { delta, _ ->
         val movement = Vector2d(gamepad1.left_stick_x.toDouble(), gamepad1.left_stick_y.toDouble())
+
+        val movementRotated = Vector3d(movement.x, 0.0, movement.y).rotateY(30.r())
+
         drive.drive(movement, gamepad1.right_stick_x.toDouble())
 
         robot.update()
