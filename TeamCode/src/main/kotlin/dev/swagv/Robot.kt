@@ -71,8 +71,8 @@ class Robot(private val hardware: HardwareMap) : Periodic {
         )
 
         left.turnEncoder.zero(Constants.leftEncoderOffset)
-        right.turnEncoder.zero(Constants.leftEncoderOffset)
-        back.turnEncoder.zero(Constants.leftEncoderOffset)
+        right.turnEncoder.zero(Constants.rightEncoderOffset)
+        back.turnEncoder.zero(Constants.backEncoderOffset)
     }
 
     fun getAngle(): Orientation {
