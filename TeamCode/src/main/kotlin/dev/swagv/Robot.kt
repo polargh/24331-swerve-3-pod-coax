@@ -85,8 +85,9 @@ class Robot(private val hardware: HardwareMap) : Periodic {
 
     override fun update() {
         swerve.update()
-        controlHub.clearBulkCache()
         Constants.applyPIDToModules()
+        controlHub.clearBulkCache()
+
     }
 
     private fun getModule(location: ModuleLocation): SwerveModule {
