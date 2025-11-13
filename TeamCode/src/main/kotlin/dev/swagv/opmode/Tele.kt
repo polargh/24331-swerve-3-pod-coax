@@ -19,6 +19,9 @@ class Tele: DSLOpMode(false, {
 
         robot.update()
         robot.telemetry.addData("fps", 1 / delta)
+        robot.telemetry.addData("left", robot.left.turnEncoder.currentPosition)
+        robot.telemetry.addData("right", robot.right.turnEncoder.currentPosition)
+        robot.telemetry.addData("back", robot.back.turnEncoder.currentPosition)
         robot.telemetry.update()
     })
 })

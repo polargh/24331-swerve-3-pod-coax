@@ -24,6 +24,9 @@ import kotlin.math.sqrt
 class Robot(private val hardware: HardwareMap) : Periodic {
 
     // Drive
+    lateinit var left: SwerveModule
+    lateinit var right: SwerveModule
+    lateinit var back: SwerveModule
     lateinit var swerve: SwerveDrive
 
     // Telemetry
@@ -54,12 +57,12 @@ class Robot(private val hardware: HardwareMap) : Periodic {
 
         imu = hardware.get(IMU::class.java, "imu")
 
-        val frontLeftPod: SwerveModule = getModule(ModuleLocation.FRONT_LEFT)
-        val frontRightPod: SwerveModule = getModule(ModuleLocation.FRONT_RIGHT)
-        val backPod: SwerveModule = getModule(ModuleLocation.BACK)
+        left = getModule(ModuleLocation.FRONT_LEFT)
+        right = getModule(ModuleLocation.FRONT_RIGHT)
+        back = getModule(ModuleLocation.BACK)
 
         swerve = SwerveDrive(
-            listOf(frontLeftPod, frontRightPod, backPod),
+            listOf(left, right, back),
             listOf(
                 0.0 to Constants.CENTER_DIST,
                 -sqrt(3.0) / 2 * Constants.CENTER_DIST to -0.5 * Constants.CENTER_DIST,
