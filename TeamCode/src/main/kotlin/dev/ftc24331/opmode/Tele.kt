@@ -16,11 +16,13 @@ class Tele: DSLOpMode(false, {
 
     schedule(forever { delta, _ ->
         val movement = Vector2d(gamepad1.left_stick_x.toDouble(), gamepad1.left_stick_y.toDouble())
-        val movementRotated = Vector3d(movement.x,0.0,movement.y).rotateY(-robot.getAngle().firstAngle.toDouble())
 
-        drive.drive(Vector2d(movementRotated.x, movementRotated.z), gamepad1.right_stick_x.toDouble())
+        for (module in robot.swerve.modules) {
+            module.turnServo.power = 1.0
+        }
 
         robot.update()
         robot.telemetry.addData("fps", 1 / delta)
+        robot.telemetry.update()
     })
 })

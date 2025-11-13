@@ -3,7 +3,6 @@ package dev.ftc24331.subsystem
 import com.qualcomm.robotcore.hardware.CRServo
 import com.qualcomm.robotcore.hardware.DcMotorEx
 import com.qualcomm.robotcore.hardware.PIDCoefficients
-import dev.ftc24331.Robot
 import dev.ftc24331.control.PIDController
 import dev.ftc24331.hardware.AbsoluteAnalogEncoder
 import dev.ftc24331.util.Periodic
@@ -40,12 +39,12 @@ class SwerveModule(
     }
 
     override fun update() {
-        val currentAngle = (turnEncoder.currentPosition / turnGearRatio).normalized
-
-        val target = (targetAngle * turnGearRatio).normalized
-
-        val turnOutput = turnPID.calculate(currentAngle, target)
-        turnServo.power = turnOutput.coerceIn(-1.0, 1.0)
-        driveMotor.power = drivePower
+//        val currentAngle = (turnEncoder.currentPosition / turnGearRatio).normalized
+//
+//        val target = (targetAngle * turnGearRatio).normalized
+//
+//        val turnOutput = turnPID.calculate(currentAngle, target)
+//        turnServo.power = turnOutput.coerceIn(-1.0, 1.0)
+//        driveMotor.power = drivePower
     }
 }
