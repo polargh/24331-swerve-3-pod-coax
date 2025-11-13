@@ -6,7 +6,6 @@ import com.qualcomm.robotcore.hardware.PIDCoefficients
 import dev.swagv.control.PIDController
 import dev.swagv.hardware.AbsoluteAnalogEncoder
 import dev.swagv.util.Periodic
-import dev.swagv.util.normalized
 
 class SwerveModule(
     val driveMotor: DcMotorEx,

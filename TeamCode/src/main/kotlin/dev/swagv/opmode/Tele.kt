@@ -5,7 +5,6 @@ import dev.swagv.Robot
 import dev.nullftc.commandkit.ktx.DSLOpMode
 import dev.nullftc.commandkit.ktx.ext.forever
 import org.joml.Vector2d
-import org.joml.Vector3d
 
 @TeleOp
 class Tele: DSLOpMode(false, {
