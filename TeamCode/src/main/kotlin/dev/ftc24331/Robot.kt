@@ -1,5 +1,7 @@
 package dev.ftc24331
 
+import com.acmerobotics.dashboard.FtcDashboard
+import com.acmerobotics.dashboard.telemetry.MultipleTelemetry
 import com.qualcomm.hardware.lynx.LynxModule
 import com.qualcomm.robotcore.hardware.AnalogInput
 import com.qualcomm.robotcore.hardware.CRServo
@@ -54,7 +56,7 @@ class Robot(private val hardware: HardwareMap) : Periodic {
 
     fun init(telemetry: Telemetry) {
         instance = this
-        this.telemetry = telemetry
+        this.telemetry = MultipleTelemetry(telemetry, FtcDashboard.getInstance().telemetry)
 
         allHubs = hardware.getAll(LynxModule::class.java)
         allHubs.forEach { hub ->

@@ -21,6 +21,6 @@ class Tele: DSLOpMode(false, {
         drive.drive(Vector2d(movementRotated.x, movementRotated.z), gamepad1.right_stick_x.toDouble())
 
         robot.update()
-        telemetry.addData("fps", 1 / delta)
+        robot.telemetry.addData("fps", 1 / delta)
     })
 })
