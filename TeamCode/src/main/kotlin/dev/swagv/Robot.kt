@@ -70,9 +70,9 @@ class Robot(private val hardware: HardwareMap) : Periodic {
             )
         )
 
-        frontLeftPod.turnEncoder.zero(Constants.leftEncoderOffset)
-        frontRightPod.turnEncoder.zero(Constants.leftEncoderOffset)
-        backPod.turnEncoder.zero(Constants.leftEncoderOffset)
+        left.turnEncoder.zero(Constants.leftEncoderOffset)
+        right.turnEncoder.zero(Constants.leftEncoderOffset)
+        back.turnEncoder.zero(Constants.leftEncoderOffset)
     }
 
     fun getAngle(): Orientation {
@@ -85,6 +85,7 @@ class Robot(private val hardware: HardwareMap) : Periodic {
 
     override fun update() {
         swerve.update()
+        controlHub.clearBulkCache()
         Constants.applyPIDToModules()
     }
 
