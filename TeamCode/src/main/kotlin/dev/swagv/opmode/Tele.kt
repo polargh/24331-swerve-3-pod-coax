@@ -16,7 +16,7 @@ class Tele: DSLOpMode(false, {
     schedule(forever { delta, _ ->
         val movement = Vector2d(gamepad1.left_stick_x.toDouble(), gamepad1.left_stick_y.toDouble())
 
-        for (module in robot.swerve.modules) {
+        for (module in drive.modules) {
             module.turnServo.power = 1.0
         }
 

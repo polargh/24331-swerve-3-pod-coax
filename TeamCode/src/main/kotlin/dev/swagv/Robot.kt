@@ -23,22 +23,8 @@ import kotlin.math.sqrt
 
 class Robot(private val hardware: HardwareMap) : Periodic {
 
-    // Modules
-    val frontLeftPod: SwerveModule by lazy { getModule(ModuleLocation.FRONT_LEFT) }
-    val frontRightPod: SwerveModule by lazy { getModule(ModuleLocation.FRONT_RIGHT) }
-    val backPod: SwerveModule by lazy { getModule(ModuleLocation.BACK) }
-
     // Drive
-    val swerve: SwerveDrive by lazy {
-        SwerveDrive(
-            listOf(frontLeftPod, frontRightPod, backPod),
-            listOf(
-                0.0 to Constants.CENTER_DIST,
-                -sqrt(3.0) / 2 * Constants.CENTER_DIST to -0.5 * Constants.CENTER_DIST,
-                sqrt(3.0) / 2 * Constants.CENTER_DIST to -0.5 * Constants.CENTER_DIST
-            )
-        )
-    }
+    lateinit var swerve: SwerveDrive
 
     // Telemetry
     lateinit var telemetry: Telemetry
@@ -68,9 +54,22 @@ class Robot(private val hardware: HardwareMap) : Periodic {
 
         imu = hardware.get(IMU::class.java, "imu")
 
+        val frontLeftPod: SwerveModule = getModule(ModuleLocation.FRONT_LEFT)
+        val frontRightPod: SwerveModule = getModule(ModuleLocation.FRONT_RIGHT)
+        val backPod: SwerveModule = getModule(ModuleLocation.BACK)
+
+        swerve = SwerveDrive(
+            listOf(frontLeftPod, frontRightPod, backPod),
+            listOf(
+                0.0 to Constants.CENTER_DIST,
+                -sqrt(3.0) / 2 * Constants.CENTER_DIST to -0.5 * Constants.CENTER_DIST,
+                sqrt(3.0) / 2 * Constants.CENTER_DIST to -0.5 * Constants.CENTER_DIST
+            )
+        )
+
         frontLeftPod.turnEncoder.zero(Constants.leftEncoderOffset)
-        frontRightPod.turnEncoder.zero(Constants.rightEncoderOffset)
-        backPod.turnEncoder.zero(Constants.backEncoderOffset)
+        frontRightPod.turnEncoder.zero(Constants.leftEncoderOffset)
+        backPod.turnEncoder.zero(Constants.leftEncoderOffset)
     }
 
     fun getAngle(): Orientation {
