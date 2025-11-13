@@ -1,4 +1,4 @@
-package dev.ftc24331.hardware
+package dev.swagv.hardware
 
 import com.qualcomm.robotcore.hardware.AnalogInput
 import kotlin.math.abs

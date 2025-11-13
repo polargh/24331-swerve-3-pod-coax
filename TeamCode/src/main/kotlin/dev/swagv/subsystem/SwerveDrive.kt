@@ -1,6 +1,6 @@
-package dev.ftc24331.subsystem
+package dev.swagv.subsystem
 
-import dev.ftc24331.util.Periodic
+import dev.swagv.util.Periodic
 import org.joml.Vector2d
 import kotlin.collections.forEachIndexed
 import kotlin.math.atan2

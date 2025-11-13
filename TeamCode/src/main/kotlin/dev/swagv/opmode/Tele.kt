@@ -1,7 +1,7 @@
-package dev.ftc24331.opmode
+package dev.swagv.opmode
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
-import dev.ftc24331.Robot
+import dev.swagv.Robot
 import dev.nullftc.commandkit.ktx.DSLOpMode
 import dev.nullftc.commandkit.ktx.ext.forever
 import org.joml.Vector2d

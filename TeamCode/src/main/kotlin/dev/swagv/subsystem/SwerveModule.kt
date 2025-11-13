@@ -1,12 +1,12 @@
-package dev.ftc24331.subsystem
+package dev.swagv.subsystem
 
 import com.qualcomm.robotcore.hardware.CRServo
 import com.qualcomm.robotcore.hardware.DcMotorEx
 import com.qualcomm.robotcore.hardware.PIDCoefficients
-import dev.ftc24331.control.PIDController
-import dev.ftc24331.hardware.AbsoluteAnalogEncoder
-import dev.ftc24331.util.Periodic
-import dev.ftc24331.util.normalized
+import dev.swagv.control.PIDController
+import dev.swagv.hardware.AbsoluteAnalogEncoder
+import dev.swagv.util.Periodic
+import dev.swagv.util.normalized
 
 class SwerveModule(
     val driveMotor: DcMotorEx,

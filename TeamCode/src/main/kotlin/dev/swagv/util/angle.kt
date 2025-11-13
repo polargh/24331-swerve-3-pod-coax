@@ -1,4 +1,4 @@
-package dev.ftc24331.util
+package dev.swagv.util
 
 fun Number.d() = Math.toDegrees(this.toDouble())
 fun Number.r() = Math.toRadians(this.toDouble())

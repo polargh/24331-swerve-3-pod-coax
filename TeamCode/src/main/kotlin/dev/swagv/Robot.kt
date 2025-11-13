@@ -1,4 +1,4 @@
-package dev.ftc24331
+package dev.swagv
 
 import com.acmerobotics.dashboard.FtcDashboard
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry
@@ -9,10 +9,10 @@ import com.qualcomm.robotcore.hardware.DcMotorEx
 import com.qualcomm.robotcore.hardware.HardwareMap
 import com.qualcomm.robotcore.hardware.IMU
 import com.qualcomm.robotcore.hardware.configuration.LynxConstants
-import dev.ftc24331.hardware.AbsoluteAnalogEncoder
-import dev.ftc24331.subsystem.SwerveDrive
-import dev.ftc24331.subsystem.SwerveModule
-import dev.ftc24331.util.Periodic
+import dev.swagv.hardware.AbsoluteAnalogEncoder
+import dev.swagv.subsystem.SwerveDrive
+import dev.swagv.subsystem.SwerveModule
+import dev.swagv.util.Periodic
 import org.firstinspires.ftc.robotcore.external.Telemetry
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder

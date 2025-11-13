@@ -1,4 +1,4 @@
-package dev.ftc24331.util
+package dev.swagv.util
 
 interface Periodic {
     fun update()
