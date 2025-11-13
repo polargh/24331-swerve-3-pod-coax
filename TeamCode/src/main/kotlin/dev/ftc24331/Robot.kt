@@ -83,6 +83,7 @@ class Robot(private val hardware: HardwareMap) : Periodic {
 
     override fun update() {
         swerve.update()
+        Constants.applyPIDToModules()
     }
 
     private fun getModule(location: ModuleLocation): SwerveModule {

@@ -7,15 +7,16 @@ import com.qualcomm.robotcore.hardware.PIDCoefficients
 object Constants {
     const val CENTER_DIST: Double = 0.143
 
-    @JvmStatic var coefficients: PIDCoefficients = PIDCoefficients(0.0, 0.0, 0.0)
-        set(value) {
-            for (module in Robot.instance.swerve.modules) {
-                module.turnCoefficients = value
-            }
-            field = value
-        }
+    @JvmField var pidP: Double = 0.0
+    @JvmField var pidI: Double = 0.0
+    @JvmField var pidD: Double = 0.0
 
-    @JvmStatic var leftEncoderOffset: Double = 0.0
-    @JvmStatic var rightEncoderOffset: Double = 0.0
-    @JvmStatic var backEncoderOffset: Double = 0.0
+    @JvmField var leftEncoderOffset: Double = 0.0
+    @JvmField var rightEncoderOffset: Double = 0.0
+    @JvmField var backEncoderOffset: Double = 0.0
+
+    fun applyPIDToModules() {
+        val coeffs = PIDCoefficients(pidP, pidI, pidD)
+        Robot.instance.swerve.modules.forEach { it.turnCoefficients = coeffs }
+    }
 }
